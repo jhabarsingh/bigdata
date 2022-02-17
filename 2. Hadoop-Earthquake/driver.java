@@ -6,6 +6,8 @@ import org.apache.hadoop.mapred.*;
 public class driver {
 	public static void main(String args[])throws Exception{
 		JobConf conf=new JobConf(driver.class);
+		Job job = Job.getInstance(conf, "word count");
+    		job.setJarByClass(WordCount.class);
 		conf.setMapperClass(mapper.class);
 		conf.setReducerClass(reducer.class);
 		conf.setOutputKeyClass(Text.class);
